@@ -1,1 +1,16 @@
-<p>heroes works!</p>
+<h1>Héroes <small>Marvel y DC</small></h1>
+<hr />
+<div class="card-columns ">
+  <div class="card" *ngFor="let heroe of heroes">
+    <div class="col-md-4"></div>
+    <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre" />
+    <div class="card-block">
+      <h5 class="card-title mt-3 text-center">{{ heroe.nombre }}</h5>
+      <p class="card-text">
+        {{ heroe.bio | slice: 0:90 }}
+      </p>
+
+      <button class="btn btn-outline-primary btn-block">Ver más</button>
+    </div>
+  </div>
+</div>
