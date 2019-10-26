@@ -64,14 +64,26 @@ export class HeroesService {
     }
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  obtenerHeroes() {
+  obtenerHeroes(): Heroe[] {
     return this.heroes;
   }
 
-  obtenerHeroe(id: number | string) {
+  obtenerHeroe(id: number | string): Heroe {
     return this.heroes[id];
+  }
+
+  buscarHeroes(heroe: string): Heroe[] {
+    let heroesArr: Heroe[] = [];
+    heroe = heroe.toLowerCase();
+
+    for (let h of this.heroes) {
+      let nombre = h.nombre.toLowerCase();
+
+      if (nombre.indexOf(heroe) >= 0) heroesArr.push(h);
+    }
+
+    return heroesArr;
   }
 }
