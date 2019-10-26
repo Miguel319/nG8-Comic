@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Heroe } from './heroe';
+import { Heroe } from "./heroe";
 
 @Injectable({
   providedIn: "root"
@@ -78,10 +78,15 @@ export class HeroesService {
     let heroesArr: Heroe[] = [];
     heroe = heroe.toLowerCase();
 
-    for (let h of this.heroes) {
+    for (let i = 0; i < this.heroes.length; i++) {
+      let h = this.heroes[i];
+      
       let nombre = h.nombre.toLowerCase();
 
-      if (nombre.indexOf(heroe) >= 0) heroesArr.push(h);
+      if (nombre.indexOf(heroe) >= 0) {
+        h.idx = i;
+        heroesArr.push(h);
+      } 
     }
 
     return heroesArr;

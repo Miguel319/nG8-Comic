@@ -1,20 +1,20 @@
 <h1>Héroes <small>Marvel y DC</small></h1>
 <hr />
-<div class="card-columns">
-  <div
-    class="card animated fadeIn fast"
-    *ngFor="let heroe of heroes; let i = index"
-  >
-    <img [src]="heroe.img" class="card-img-to img-fluid" [alt]="heroe.nombre" />
-    <div class="card-block">
-      <h4 class="card-title mt-3 text-center">{{ heroe.nombre }}</h4>
-      <p class="card-text">
-        {{ heroe.bio | slice: 0:90 }}
-      </p>
 
-      <button (click)="atras()" class="btn btn-outline-danger btn-block">
-        Atrás
-      </button>
-    </div>
-  </div>
+<div
+  *ngIf="heroes.length < 1"
+  class="animated fadeIn fast alerta alert alert-warning"
+  role="alert"
+>
+  No existen registros con estos criterios.
+</div>
+
+<div class="card-columns">
+  <app-heroe-tarjeta
+    *ngFor="let heroe of heroes"
+    [heroe]="heroe"
+    [i]="heroe?.idx"
+    (heroeSeleccionado)="verDetalles($event)"
+  >
+  </app-heroe-tarjeta>
 </div>

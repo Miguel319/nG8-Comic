@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { HeroesService } from "src/app/compartido/heroes.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Heroe } from "src/app/compartido/heroe";
@@ -21,6 +21,10 @@ export class BuscarHeroeComponent implements OnInit {
     this.activatedRoute.params.subscribe(p => {
       this.heroes = this.heroesService.buscarHeroes(p["criterio"]);
     });
+  }
+
+  verDetalles(id: Event) {
+    this.router.navigate(["/heroe-info", id]);
   }
 
   atras() {

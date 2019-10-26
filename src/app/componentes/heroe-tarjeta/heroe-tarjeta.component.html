@@ -1,0 +1,16 @@
+<div class="card animated fadeIn fast">
+  <img [src]="heroe.img" class="card-img-to img-fluid" [alt]="heroe.nombre" />
+  <div class="card-block">
+    <h4 class="card-title mt-3 text-center">{{ heroe.nombre }}</h4>
+    <p class="card-text">
+      {{ heroe.bio | slice: 0:90 }}...
+    </p>
+
+    <button
+      (click)="verDetalles(indice)"
+      class="btn btn-outline-primary btn-block"
+    >
+      Ver más
+    </button>
+  </div>
+</div>

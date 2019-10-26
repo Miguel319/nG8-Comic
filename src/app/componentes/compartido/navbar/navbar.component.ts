@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
 import { HeroesService } from "src/app/compartido/heroes.service";
 
@@ -8,11 +8,15 @@ import { HeroesService } from "src/app/compartido/heroes.service";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild("texto", { static: false }) texto: ElementRef;
+
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
   buscarHeroe(criterio: string) {
     this.router.navigate(["/heroes-buscar", criterio]);
+
+    this.texto.nativeElement.value = "";
   }
 }
