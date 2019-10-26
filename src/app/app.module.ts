@@ -8,6 +8,7 @@ import { AcercaDeComponent } from "./componentes/acerca-de/acerca-de.component";
 import { HeroesComponent } from "./componentes/heroes/heroes.component";
 import { APP_ROUTING } from "./routes";
 import { HeroesService } from './compartido/heroes.service';
+import { HeroeInfoComponent } from './componentes/heroe-info/heroe-info.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeroesService } from './compartido/heroes.service';
     NavbarComponent,
     HomeComponent,
     AcercaDeComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroeInfoComponent
   ],
   imports: [BrowserModule, APP_ROUTING],
   providers: [HeroesService],

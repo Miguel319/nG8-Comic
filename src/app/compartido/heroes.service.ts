@@ -70,4 +70,8 @@ export class HeroesService {
   obtenerHeroes() {
     return this.heroes;
   }
+
+  obtenerHeroe(id: number | string) {
+    return this.heroes[id];
+  }
 }

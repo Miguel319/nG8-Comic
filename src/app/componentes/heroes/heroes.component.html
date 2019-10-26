@@ -1,16 +1,24 @@
 <h1>Héroes <small>Marvel y DC</small></h1>
 <hr />
-<div class="card-columns ">
-  <div class="card" *ngFor="let heroe of heroes">
-    <div class="col-md-4"></div>
-    <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre" />
+<div class="card-columns">
+  <div
+    class="card animated fadeIn fast"
+    *ngFor="let heroe of heroes; let i = index"
+  >
+    <img [src]="heroe.img" class="card-img-to img-fluid" [alt]="heroe.nombre" />
     <div class="card-block">
-      <h5 class="card-title mt-3 text-center">{{ heroe.nombre }}</h5>
+      <h4 class="card-title mt-3 text-center">{{ heroe.nombre }}</h4>
       <p class="card-text">
         {{ heroe.bio | slice: 0:90 }}
       </p>
 
-      <button class="btn btn-outline-primary btn-block">Ver más</button>
+      <button (click)="verDetalles(i)" class="btn btn-outline-primary btn-block">Ver más</button>
+
+      <!-- <a
+        [routerLink]="['/heroe-info', i]"
+        class="btn btn-outline-primary btn-block"
+        >Ver más...</a
+      > -->
     </div>
   </div>
 </div>

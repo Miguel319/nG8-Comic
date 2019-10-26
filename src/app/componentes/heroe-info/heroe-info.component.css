@@ -1,0 +1,5 @@
+.img-s {
+  display: flex;
+  justify-content: flex-end;
+  max-height: 100px;
+}
